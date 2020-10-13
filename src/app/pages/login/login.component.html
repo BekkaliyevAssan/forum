@@ -1,0 +1,19 @@
+<div class="wrapper">
+    <form class="content" [formGroup]="loginForm">
+        <div class="title">Log in</div>
+        <div class="input-item">
+            <div class="label">username</div>
+            <input type="text" formControlName="username">
+        </div>
+        <div class="input-item">
+            <div class="label">password</div>
+            <input type="password" formControlName="password">
+        </div>
+        <div class="button-group">
+            <app-button [type]="'primary'" [text]="'log in'"
+            (click)="onSubmit()"
+            ></app-button>
+            <app-button [type]="'secondary'" [text]="'forgot the password'"></app-button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,17 @@
+<div class="wrap">
+    <span routerLink="">forum.</span>
+    <div class="wrap_login" *ngIf="user != null">
+        <div class="wrap_login__button">
+            {{user.username}}
+        </div>
+    </div>
+    <div class="wrap_login" *ngIf="user == null">
+        <div class="wrap_login__button" routerLink="login" routerLinkActive="active">
+            log in
+        </div>
+        |
+        <div class="wrap_login__button" routerLink="register" routerLinkActive="active">
+            sign up
+        </div>
+    </div>
+</div>

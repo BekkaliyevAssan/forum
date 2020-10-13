@@ -1,0 +1,46 @@
+* {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+.wrapper {
+    display: grid;
+    justify-self: self-start;
+}
+.primary {
+    padding: 0 1rem;
+    height: 40px;
+    border-radius: 5px;
+    display: grid;
+    align-items: center;
+    background: rgb(36, 36, 36);
+    color: #fff;
+    justify-self: start;
+    cursor: pointer;
+}
+.primary:hover {
+    background: rgb(27, 27, 27);
+}
+.primary:active {
+    background: #000;
+}
+/* ////////////// */
+.secondary {
+    padding: 0 1rem;
+    height: 40px;
+    border-radius: 5px;
+    display: grid;
+    align-items: center;
+    color: #363636;
+    justify-self: start;
+    cursor: pointer; 
+}
+.secondary:hover {
+    background: #f0f0f0;
+}
+.secondary:active {
+    background: #dfdfdf;
+}
