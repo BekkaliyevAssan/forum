@@ -1,0 +1,15 @@
+.wrapper {
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+.wrapper:hover .title{
+    text-decoration: underline;
+}
+.title {
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+}
+.body {
+    color: gray;
+}

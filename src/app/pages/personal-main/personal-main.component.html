@@ -1,0 +1,10 @@
+<div class="title">posts</div>
+<div class="post_list" *ngIf="!loading">
+    <div *ngFor="let p of personalPosts">
+        <app-post-card [content]="p" routerLink="{{p.id}}"></app-post-card>
+    </div>
+</div>
+<div *ngIf="loading">
+    <span>loading now</span>
+</div>
+<div class="title">albums</div>

@@ -58,4 +58,8 @@ export class UserService {
 
     this.router.navigate([''])
   }
+
+  getPosts():Observable<any> {
+    return this.http.get(this.url + '/posts/')
+  }
 }

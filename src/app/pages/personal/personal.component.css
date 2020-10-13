@@ -1,7 +1,7 @@
 .wrapper {
     display: grid;
     grid-template-columns: 2fr 5fr;
-    grid-gap: 1rem;
+    grid-gap: 2rem;
 }
 .personal {
     border-right: 1px solid #dedede;
@@ -44,4 +44,13 @@
 }
 .personal_location span{
     font-size: 18px;
+}
+/* ///////////////////// */
+.title {
+    font-size: 20px;
+    padding-bottom: 1rem;
+    font-weight: 500;
+}
+.post_list {
+    padding-bottom: 1rem;
 }

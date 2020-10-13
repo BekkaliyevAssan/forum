@@ -1,0 +1,14 @@
+<ng-container *ngIf="!loading">
+    <div class="post-title">{{post.title}}</div>
+    <div class="title">posted by <strong>{{author.username}}({{author.email}})</strong></div>
+    <p>{{post.body}}</p>
+    <div class="comments">
+        <div *ngFor="let c of postComments">
+            <app-comment-card [comment]="c"></app-comment-card>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="loading">
+    <span>loading now</span>
+</ng-container>
+    

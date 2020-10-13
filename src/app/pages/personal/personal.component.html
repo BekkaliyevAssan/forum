@@ -5,7 +5,7 @@
         <div class="personal_subinfo">
             <div class="personal_subinfo__item">{{user.username}}</div>
             <div class="personal_subinfo__item">{{user.company.name}}</div>
-            <div class="personal_subinfo__item" (click)="onRedirect(user.website)" >{{user.website}}</div>
+            <div class="personal_subinfo__item" (click)="onRedirect(user.website)">{{user.website}}</div>
         </div>
         <div class="personal_location">
             <span class="material-icons">
@@ -14,5 +14,7 @@
             {{user.address.city}}, {{user.address.street}}
         </div>
     </div>
-    <div class="posts"></div>
+    <div class="posts">
+        <router-outlet></router-outlet>
+    </div>
 </div>

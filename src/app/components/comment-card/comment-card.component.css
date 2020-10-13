@@ -1,0 +1,23 @@
+.wrapper {
+    padding: 1rem 0;
+}
+.name {
+    font-size: 20px;
+    font-weight: 500;
+}
+.email {
+    color: gray;
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+}
+.email strong {
+    cursor: pointer;
+    color: #000 !important;
+    font-weight: 500;
+}
+.email:hover strong{
+    text-decoration: underline;
+}
+.body {
+    color: gray;
+}

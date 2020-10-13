@@ -38,19 +38,13 @@ export class RegisterComponent implements OnInit {
   
   onSubmit() {
     this.userService.register(this.regForm.value).subscribe(res => {
-      console.log(res)
+      if(res) {
+        localStorage.setItem('user', JSON.stringify(res))
+        this.userService.isAuthorizedChange.next(res)
+        localStorage.setItem('userInfo', JSON.stringify(res))
+        this.userService.personalInfoChange.next(res)
+        this.router.navigate(['personal', res.id])
+      }
     })
-  //   this.userService.logIn(this.regForm.value).subscribe(res => {
-  //     if (res.userId) {
-  //       localStorage.setItem('user', JSON.stringify(res))
-  //       this.userService.isAuthorizedChange.next(res)
-  //       this.userService.getCurrentUserInfo(res.userId).subscribe(data => {
-  //         localStorage.setItem('userInfo', JSON.stringify(data))
-  //         this.userService.personalInfoChange.next(data)
-  //         this.router.navigate(['personal', data.id])
-  //       })
-  //     }
-  //   })
-
   }
 }

@@ -7,10 +7,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ButtonComponent } from './components/button/button.component'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PersonalComponent } from './pages/personal/personal.component'
+import { PostsInterceptor } from './posts.interceptor';
+import { PostCardComponent } from './components/post-card/post-card.component';
+import { PersonalMainComponent } from './pages/personal-main/personal-main.component';
+import { PostDetailsComponent } from './pages/post-details/post-details.component';
+import { CommentCardComponent } from './components/comment-card/comment-card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,11 @@ import { PersonalComponent } from './pages/personal/personal.component'
     HomeComponent,
     RegisterComponent,
     ButtonComponent,
-    PersonalComponent
+    PersonalComponent,
+    PostCardComponent,
+    PersonalMainComponent,
+    PostDetailsComponent,
+    CommentCardComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +38,11 @@ import { PersonalComponent } from './pages/personal/personal.component'
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: PostsInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
