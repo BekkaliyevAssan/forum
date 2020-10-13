@@ -7,16 +7,21 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  username: string
   constructor(private userService: UserService) { 
-    // this.username = this.user.username
   }
 
   ngOnInit(): void {
   }
-
   get user() {
     return this.userService.isAuthorized
+  }
+
+  get personalInfo() {
+    return this.userService.personalInfo
+  }
+
+  logout() {
+    this.userService.onLogout()
   }
 
 }

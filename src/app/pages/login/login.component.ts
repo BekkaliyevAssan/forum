@@ -19,16 +19,25 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  onEnterKey(event) {
+    if (event.keyCode === 13) this.onSubmit()
+  }
+  
   onSubmit() {
     // console.log(this.loginForm.value)
     this.userService.logIn(this.loginForm.value).subscribe(res => {
-      if(res) {
+      if (res.userId) {
         localStorage.setItem('user', JSON.stringify(res))
-        
         this.userService.isAuthorizedChange.next(res)
-        this.router.navigate([''])
+        this.userService.getCurrentUserInfo(res.userId).subscribe(data => {
+          localStorage.setItem('userInfo', JSON.stringify(data))
+          this.userService.personalInfoChange.next(data)
+          this.router.navigate(['personal', data.id])
+        })
       }
     })
+
   }
 
 }

@@ -1,9 +1,11 @@
 <div class="wrap">
     <span routerLink="">forum.</span>
-    <div class="wrap_login" *ngIf="user != null">
-        <div class="wrap_login__button">
-            {{user.username}}
+    <div class="wrap_login" *ngIf="personalInfo">
+        <div class="wrap_login__button" routerLink="personal/{{personalInfo.id}}">
+            signed as {{personalInfo.username}}
         </div>
+        |
+        <div class="wrap_login__button" (click)="logout()">log out</div>
     </div>
     <div class="wrap_login" *ngIf="user == null">
         <div class="wrap_login__button" routerLink="login" routerLinkActive="active">

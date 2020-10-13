@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <form class="content" [formGroup]="loginForm">
+    <form class="content" [formGroup]="loginForm" (keydown)="onEnterKey($event)">
         <div class="title">Log in</div>
         <div class="input-item">
             <div class="label">username</div>
