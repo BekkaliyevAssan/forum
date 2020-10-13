@@ -1,0 +1,31 @@
+.wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 4rem - 63px);
+}
+.content {
+    display: grid;
+    grid-gap: 1rem;
+}
+.content_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+}
+.content_wrapper > div {
+    display: grid;
+    grid-gap: 1rem;
+}
+.input_groups {
+    display: grid;
+    grid-gap: 1rem;
+}
+.title {
+    font-size: 24px;
+}
+.button-group {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    grid-gap: 1rem;
+}

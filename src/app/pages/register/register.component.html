@@ -1,1 +1,65 @@
-<p>register works!</p>
+<div class="wrapper">
+    <form class="content" [formGroup]="regForm" (keydown)="onEnterKey($event)">
+        <div class="title">sing up</div>
+        <div class="content_wrapper">
+
+            <div class="content_main">
+                <div class="input-item">
+                    <div class="label">username</div>
+                    <input type="text" formControlName="username">
+                </div>
+                <div class="input-item">
+                    <div class="label">full name</div>
+                    <input type="text" formControlName="name">
+                </div>
+                <div class="input-item">
+                    <div class="label">email</div>
+                    <input type="text" formControlName="email">
+                </div>
+                <div class="input-item">
+                    <div class="label">password</div>
+                    <input type="password" formControlName="password">
+                </div>
+                <div class="input-item">
+                    <div class="label">confirm password</div>
+                    <input type="password" formControlName="password2">
+                </div>
+            </div>
+            <div class="content_additional">
+                
+                <div class="input-item">
+                    <div class="label">phone no</div>
+                    <input type="text" formControlName="phone">
+                </div>
+                <div class="input-item">
+                    <div class="label">website address</div>
+                    <input type="text" formControlName="website">
+                </div>
+                <div class="input_groups" formGroupName="address">
+                    <div class="input-item">
+                        <div class="label">city</div>
+                        <input type="text" formControlName="city">
+                    </div>
+                    <div class="input-item">
+                        <div class="label">street</div>
+                        <input type="text" formControlName="street">
+                    </div>
+                </div>
+                <div formGroupName="company">
+                    <div class="input-item">
+                        <div class="label">company name</div>
+                        <input type="text" formControlName="name">
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="button-group">
+                <app-button [type]="'primary'" [text]="'sign up'"
+                (click)="onSubmit()"
+                ></app-button>
+                <div routerLink="/login">
+                    <app-button [type]="'secondary'" [text]="'already have an account'"></app-button>
+                </div>
+            </div>
+    </form>
+</div>

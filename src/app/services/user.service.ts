@@ -37,6 +37,10 @@ export class UserService {
     return this.http.post(this.url + '/sign-in', user, this.httpHeaders)
   }
 
+  register(user):Observable<any> {
+    return this.http.post(this.url + '/users', user, this.httpHeaders)
+  }
+
   getUsers():Observable<any> {
     return this.http.get(this.url + '/users')
   }

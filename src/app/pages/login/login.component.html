@@ -1,6 +1,6 @@
 <div class="wrapper">
     <form class="content" [formGroup]="loginForm" (keydown)="onEnterKey($event)">
-        <div class="title">Log in</div>
+        <div class="title">log in</div>
         <div class="input-item">
             <div class="label">username</div>
             <input type="text" formControlName="username">
@@ -13,7 +13,9 @@
             <app-button [type]="'primary'" [text]="'log in'"
             (click)="onSubmit()"
             ></app-button>
-            <app-button [type]="'secondary'" [text]="'forgot the password'"></app-button>
+            <div routerLink="/register">    
+                <app-button [type]="'secondary'" [text]="'dont have an account yet'"></app-button>
+            </div>
         </div>
     </form>
 </div>

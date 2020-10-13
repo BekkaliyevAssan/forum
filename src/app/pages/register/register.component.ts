@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +10,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService, private router: Router, private fb: FormBuilder) { }
+
+  regForm = this.fb.group({
+    name: ['', Validators.required],
+    email: ['', Validators.required],
+    address: this.fb.group({
+      city: ['', Validators.required],
+      street: ['', Validators.required]
+    }),
+    company: this.fb.group({
+      name: ['', Validators.required]
+    }),
+    username: ['', Validators.required],
+    password: ['', Validators.required],
+    password2: ['', Validators.required],
+    phone: ['', Validators.required],
+    website: ['', Validators.required]
+  })
 
   ngOnInit(): void {
   }
 
+  onEnterKey(event) {
+    if (event.keyCode === 13) this.onSubmit()
+  }
+  
+  onSubmit() {
+    this.userService.register(this.regForm.value).subscribe(res => {
+      console.log(res)
+    })
+  //   this.userService.logIn(this.regForm.value).subscribe(res => {
+  //     if (res.userId) {
+  //       localStorage.setItem('user', JSON.stringify(res))
+  //       this.userService.isAuthorizedChange.next(res)
+  //       this.userService.getCurrentUserInfo(res.userId).subscribe(data => {
+  //         localStorage.setItem('userInfo', JSON.stringify(data))
+  //         this.userService.personalInfoChange.next(data)
+  //         this.router.navigate(['personal', data.id])
+  //       })
+  //     }
+  //   })
+
+  }
 }
