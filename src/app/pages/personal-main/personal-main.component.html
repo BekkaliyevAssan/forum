@@ -9,7 +9,9 @@
     <div class="title">{{user.username}}'s albums</div>
     <div class="album_list">
         <div *ngFor="let a of personalAlbums">
-            <app-album-card [title]="a"></app-album-card>
+            <app-album-card routerLink="album/{{a.id}}">
+                {{a.title}}
+            </app-album-card>
         </div>
     </div>
 </div>

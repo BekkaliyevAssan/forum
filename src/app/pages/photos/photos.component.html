@@ -1,0 +1,11 @@
+<div class="wrapper" *ngIf="!loading">
+    <div class="title" *ngIf="album">{{album.title}}</div>
+    <div class="photos">
+        <div *ngFor="let p of photos">
+            <img src="{{p.url}}" alt="">
+        </div>
+    </div>
+</div>
+<div *ngIf="loading">
+    loading now
+</div>

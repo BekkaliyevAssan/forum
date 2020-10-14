@@ -65,10 +65,9 @@
 .button-group {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: 1fr auto;
-    /* margin-top: 5rem; */
+    justify-items: center;
+    padding: 1rem 1rem 0 1rem;
     margin-top: 1rem;  
-    padding-top: 1rem;
     border-top: 1px solid #dedede;
 }
 .posts {

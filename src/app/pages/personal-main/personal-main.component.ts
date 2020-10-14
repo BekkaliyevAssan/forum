@@ -29,6 +29,7 @@ export class PersonalMainComponent implements OnInit {
 
     this.userService.getAlbums(this.currentUserId).subscribe(data => {
       this.personalAlbums = data
+      console.log(data  )
     })
   }
 

@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 export class PersonalComponent implements OnInit {
   user
   userColor
-  constructor(private userService: UserService, private cdr: ChangeDetectorRef) {
+  constructor(private userService: UserService) {
     this.user = this.userService.personalInfo
   }
 
@@ -20,12 +20,5 @@ export class PersonalComponent implements OnInit {
 
   onRedirect(site) {
     document.location.href = `https://${site}`
-  }
-  contentWidth
-  @ViewChild('content') elementView: ElementRef;
-
-  ngAfterViewInit() {
-    this.contentWidth = this.elementView.nativeElement.offsetWidth;
-    this.cdr.detectChanges()
   }
 }

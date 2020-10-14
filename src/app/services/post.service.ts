@@ -41,5 +41,13 @@ export class PostService {
       })
     )
   }
+
+  getAlbum(id): Observable<any> {
+    return this.http.get(this.url + '/albums/' + id)
+  }
+
+  getPhotos(id): Observable<any> {
+    return this.http.get(this.url + '/albums/' + id + '/photos')
+  }
   
 } 
