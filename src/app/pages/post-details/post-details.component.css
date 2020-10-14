@@ -2,6 +2,11 @@
     font-size: 32px;
     font-weight: bold;
 }
+.header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 1rem;
+}
 .title {
     color: gray;
     font-size: 14px;
@@ -21,4 +26,7 @@ p {
 .comments {
     border-top: 1px solid #dedede;
     padding: 1rem 0;
+}
+.delete {
+    display: grid;
 }

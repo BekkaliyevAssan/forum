@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
   }
   
   onSubmit() {
-    // console.log(this.loginForm.value)
     this.userService.logIn(this.loginForm.value).subscribe(res => {
       if (res.userId) {
         localStorage.setItem('user', JSON.stringify(res))

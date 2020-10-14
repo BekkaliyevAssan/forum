@@ -1,7 +1,7 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf="!loading">
     <div class="personal">
         <div class="personal_img"></div>
-        <div class="personal_name">{{user.name}}</div>
+        <div class="personal_name" routerLink="/user/{{user.id}}">{{user.name}}</div>
         <div class="personal_subinfo">
             <div class="personal_subinfo__item">{{user.username}}</div>
             <div class="personal_subinfo__item">{{user.company.name}}</div>
@@ -13,11 +13,11 @@
             </span>
             {{user.address.city}}, {{user.address.street}}
         </div>
-        <div class="button-group">
-            <app-button routerLink="new-post" [type]="'primary'" [text]="'create a new post'"></app-button>
-        </div>
     </div>
     <div class="posts">
         <router-outlet></router-outlet>
     </div>
+</div>
+<div class="loader" *ngIf="loading">
+    loading now
 </div>

@@ -1,0 +1,13 @@
+.wrapper {
+    height: 30px;
+    border-radius: 15px;
+    padding: 0 1rem;
+    background: #f0f0f0;
+    display: grid;
+    align-items: center;
+    margin: 0 0.6rem 0.6rem 0;
+    cursor: pointer;
+}
+.wrapper:hover {
+    background: rgb(226, 226, 226);
+}

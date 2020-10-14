@@ -8,7 +8,7 @@ import { _url } from '../../assets/env'
 })
 export class UserService {
   private url = _url
-  isAuthorized
+  isAuthorized  
   isAuthorizedChange: Subject<any> = new Subject<any>() 
 
   personalInfo
@@ -33,6 +33,13 @@ export class UserService {
     })
   }
 
+  getToken() {
+    let user = JSON.parse(localStorage.getItem('user'))
+    if(user)
+    return user.access_token
+    else return 'hello'
+  }
+
   logIn(user):Observable<any> {
     return this.http.post(this.url + '/sign-in', user, this.httpHeaders)
   }
@@ -45,10 +52,14 @@ export class UserService {
     return this.http.get(this.url + '/users')
   }
 
-  getCurrentUserInfo(id):Observable<any> {
+  getUser(id):Observable<any> {
     return this.http.get(this.url + '/users/' + id)
   }
   
+  getCurrentUserInfo(id):Observable<any> {
+    return this.http.get(this.url + '/users/' + id)
+  }
+
   onLogout() {
     localStorage.removeItem('user')
     localStorage.removeItem('userInfo')
@@ -61,5 +72,9 @@ export class UserService {
 
   getPosts():Observable<any> {
     return this.http.get(this.url + '/posts/')
+  }
+
+  getAlbums(id): Observable<any> {
+    return this.http.get(this.url + '/users/' + id + '/albums')
   }
 }

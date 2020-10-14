@@ -1,7 +1,13 @@
 <ng-container *ngIf="!loading">
-    <div class="post-title">{{post.title}}</div>
-    <div class="title">posted by <strong>{{author.username}}({{author.email}})</strong></div>
+    <div class="header">
+        <div class="post-title">{{post.title}}</div>
+        <div class="delete" *ngIf="post.userId == currentUser">
+            <app-button (click)="onPostDelete(post.id)" [text]="'delete post'" [type]="'secondary'"></app-button>
+        </div>
+    </div>
+    <div class="title">posted by <strong routerLink="/user/{{author.id}}">{{author.username}}({{author.email}})</strong></div>
     <p>{{post.body}}</p>
+    
     <div class="comments">
         <div *ngFor="let c of postComments">
             <app-comment-card [comment]="c"></app-comment-card>

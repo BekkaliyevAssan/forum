@@ -16,6 +16,10 @@ import { PostCardComponent } from './components/post-card/post-card.component';
 import { PersonalMainComponent } from './pages/personal-main/personal-main.component';
 import { PostDetailsComponent } from './pages/post-details/post-details.component';
 import { CommentCardComponent } from './components/comment-card/comment-card.component';
+import { AlbumCardComponent } from './components/album-card/album-card.component';
+import { AuthGuard } from './auth.guard';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { NewPostComponent } from './pages/new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,10 @@ import { CommentCardComponent } from './components/comment-card/comment-card.com
     PostCardComponent,
     PersonalMainComponent,
     PostDetailsComponent,
-    CommentCardComponent
+    CommentCardComponent,
+    AlbumCardComponent,
+    UserDetailsComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +49,9 @@ import { CommentCardComponent } from './components/comment-card/comment-card.com
     provide: HTTP_INTERCEPTORS,
     useClass: PostsInterceptor,
     multi: true
-  }],
+  },
+  AuthGuard
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

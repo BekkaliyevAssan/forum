@@ -22,4 +22,11 @@ export class PostService {
   getCurrentComments(postId):Observable<any> {
     return this.http.get(this.url + '/posts/' + postId + '/comments')
   }
+  setPost(post):Observable<any> {
+    return this.http.post(this.url + '/posts', post, this.httpHeaders)
+  }
+  deletePost(postId):Observable<any> {
+    return this.http.delete(this.url + '/posts/' + postId)
+  }
+  
 } 

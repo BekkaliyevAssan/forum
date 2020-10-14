@@ -1,0 +1,10 @@
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
+.posts {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0 3rem;
+}

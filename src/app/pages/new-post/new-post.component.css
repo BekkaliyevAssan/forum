@@ -1,0 +1,9 @@
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+.content {
+    display: grid;
+    grid-gap: 1rem;
+}

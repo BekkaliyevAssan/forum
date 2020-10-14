@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
@@ -12,19 +12,17 @@ import { UserService } from './services/user.service';
 export class PostsInterceptor implements HttpInterceptor {
   token: string
 
-  constructor(private userService: UserService) {
-    this.token = this.userService.isAuthorized.access_token || ''
+  constructor(private userService: UserService, private injector: Injector) {
+    console.log(this.userService.getToken())
   }
   
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
-    if(this.token) {
-      const reqPost = req.clone({
-        setHeaders: {
-          Authorization: this.token
-        }
-      })
-      return next.handle(reqPost)
-    }
+    let userService = this.injector.get(UserService)
+    let tokenizedReq = req.clone({
+      setHeaders: {
+        Authorization: userService.getToken()
+      }
+    })
+    return next.handle(tokenizedReq)
   }
 }

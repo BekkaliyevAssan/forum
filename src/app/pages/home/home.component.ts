@@ -7,11 +7,13 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  public posts
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(data => {
+    this.userService.getPosts().subscribe(data => {
+      this.posts = data
+      console.log(data)
     })
   }
 

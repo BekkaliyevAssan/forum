@@ -1,10 +1,18 @@
-<div class="title">posts</div>
-<div class="post_list" *ngIf="!loading">
-    <div *ngFor="let p of personalPosts">
-        <app-post-card [content]="p" routerLink="{{p.id}}"></app-post-card>
+<!-- <div class="title">posts</div> -->
+<div *ngIf="!loading">
+    <div class="title">{{user.username}}'s posts</div>
+    <div class="post_list">
+        <div *ngFor="let p of personalPosts">
+            <app-post-card [content]="p" routerLink="{{p.id}}"></app-post-card>
+        </div>
+    </div>
+    <div class="title">{{user.username}}'s albums</div>
+    <div class="album_list">
+        <div *ngFor="let a of personalAlbums">
+            <app-album-card [title]="a"></app-album-card>
+        </div>
     </div>
 </div>
 <div *ngIf="loading">
     <span>loading now</span>
 </div>
-<div class="title">albums</div>

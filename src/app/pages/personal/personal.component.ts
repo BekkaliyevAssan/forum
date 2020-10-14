@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -18,5 +19,4 @@ export class PersonalComponent implements OnInit {
   onRedirect(site) {
     document.location.href = `https://${site}`
   }
-
 }

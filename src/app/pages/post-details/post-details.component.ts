@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { flush } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -13,15 +13,19 @@ export class PostDetailsComponent implements OnInit {
   post
   author
   postComments
+  currentUser
   loading: boolean = true
-  constructor(private route: ActivatedRoute, private postService: PostService) { 
+  constructor(private route: ActivatedRoute, private postService: PostService, private router: Router) { 
     this.id = this.route.snapshot.paramMap.get('post-id')
+
+    this.currentUser = JSON.parse(localStorage.getItem('user')).userId
   }
 
   ngOnInit(): void {
     this.postService.getPostDetails(this.id).subscribe(post => {
       this.post = post
       this.loading = false
+      console.log(this.post)
 
       let userList = JSON.parse(localStorage.getItem('userList')) || []
       this.author = userList.find(o => o.id == this.post.userId)
@@ -29,7 +33,12 @@ export class PostDetailsComponent implements OnInit {
 
     this.postService.getCurrentComments(this.id).subscribe(comments => {
       this.postComments = comments
-      console.log(this.postComments)
+    })
+  }
+
+  onPostDelete(postId) {
+    this.postService.deletePost(postId).subscribe(res => {
+      this.router.navigate(['personal', this.currentUser])
     })
   }
 

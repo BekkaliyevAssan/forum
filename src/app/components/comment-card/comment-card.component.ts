@@ -7,8 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CommentCardComponent implements OnInit {
   @Input() comment
-  constructor() { }
-
+  userList = []
+  constructor() { 
+    this.userList = JSON.parse(localStorage.getItem('userList')) || []
+  }
+  
   ngOnInit(): void {
   }
 

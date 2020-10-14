@@ -9,3 +9,7 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 0 3rem;
 }
+.album_list {
+    display: flex;
+    flex-wrap: wrap;
+}

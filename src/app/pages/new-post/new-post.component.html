@@ -1,0 +1,14 @@
+<div class="title">new post creation</div>
+<form [formGroup]="post" class="content" (keydown)="onEnterKey($event)">
+    <div class="input-item">
+        <div class="label">title</div>
+        <input type="text" formControlName="title">
+    </div>
+    <div class="input-item">
+        <div class="label">body</div>
+        <textarea cols="30" rows="10" formControlName="body"></textarea>
+    </div>
+    <div class="button-group">
+        <app-button (click)="onSubmit()" [type]="'primary'" [text]="'apply this post'"></app-button>
+    </div>
+</form>
