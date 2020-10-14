@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { _url } from '../../assets/env'
+import { tap } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,11 @@ export class PostService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
+  }
+
+  private _refresh = new Subject<void>()
+  get refresh() {
+    return this._refresh
   }
 
   constructor(private http: HttpClient) { }
@@ -27,6 +33,13 @@ export class PostService {
   }
   deletePost(postId):Observable<any> {
     return this.http.delete(this.url + '/posts/' + postId)
+  }
+  addComment(comment, postId):Observable<any> {
+    return this.http.post(this.url + '/posts/' + postId  + '/comments', comment, this.httpHeaders).pipe(
+      tap(() => {
+        this._refresh.next()
+      })
+    )
   }
   
 } 

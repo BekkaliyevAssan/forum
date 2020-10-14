@@ -2,7 +2,7 @@
     <div class="header">
         <div class="post-title">{{post.title}}</div>
         <div class="delete" *ngIf="post.userId == currentUser">
-            <app-button (click)="onPostDelete(post.id)" [text]="'delete post'" [type]="'secondary'"></app-button>
+            <app-button (click)="onPostDelete(post.id)" [text]="'delete post'" [type]="'primary'"></app-button>
         </div>
     </div>
     <div class="title">posted by <strong routerLink="/user/{{author.id}}">{{author.username}}({{author.email}})</strong></div>
@@ -12,6 +12,19 @@
         <div *ngFor="let c of postComments">
             <app-comment-card [comment]="c"></app-comment-card>
         </div>
+    </div>
+    <div class="comment_input">
+        <form [formGroup]="comment">
+            <div class="input-item">
+                <div class="label">title</div>
+                <input type="text" formControlName="name">
+            </div>
+            <div class="input-item">
+                <div class="label">share you opinion</div>
+                <textarea rows="3" formControlName="body"></textarea>
+            </div>
+            <app-button (click)="addComment(post.id)" [text]="'add your comment'" [type]="'primary'"></app-button>
+        </form>
     </div>
 </ng-container>
 <ng-container *ngIf="loading">
