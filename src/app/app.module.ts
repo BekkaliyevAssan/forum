@@ -20,6 +20,7 @@ import { AlbumCardComponent } from './components/album-card/album-card.component
 import { AuthGuard } from './auth.guard';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
 import { NewPostComponent } from './pages/new-post/new-post.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NewPostComponent } from './pages/new-post/new-post.component';
     CommentCardComponent,
     AlbumCardComponent,
     UserDetailsComponent,
-    NewPostComponent
+    NewPostComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,

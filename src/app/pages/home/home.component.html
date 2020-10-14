@@ -1,6 +1,15 @@
+
+<div class="title">our family</div>
+<div class="users">
+    <div *ngFor="let u of users">
+        <div>
+            <app-user-card (click)="onUserRedirect(u.id)" [user]="u"></app-user-card>
+        </div>
+    </div>
+</div>
 <div class="title">feed</div>
 <div class="posts">
     <div *ngFor="let p of posts">
-        <app-post-card [content]="p" routerLink="/user/{{p.userId}}/{{p.id}}"></app-post-card>
+        <app-post-card [content]="p" (click)="onRedirect(p.userId, p.id)"></app-post-card>
     </div>
 </div>

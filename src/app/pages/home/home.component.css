@@ -8,3 +8,12 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 0 3rem;
 }
+.users {
+    padding: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.users div {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}

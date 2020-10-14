@@ -67,7 +67,7 @@ export class UserService {
     this.isAuthorizedChange.next(null)
     this.personalInfoChange.next(null)
 
-    this.router.navigate([''])
+    this.router.navigate(['/login'])
   }
 
   getPosts():Observable<any> {
@@ -76,5 +76,27 @@ export class UserService {
 
   getAlbums(id): Observable<any> {
     return this.http.get(this.url + '/users/' + id + '/albums')
+  }
+
+
+
+
+
+  hashCode(str) { // java String#hashCode
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return hash;
+  }
+  intToRGB(i) {
+    var c = (i & 0x00FFFFFF)
+      .toString(16)
+      .toUpperCase();
+
+    return "00000".substring(0, 6 - c.length) + c;
+  }
+  getUserColor(string) {
+    return this.intToRGB(this.hashCode(string))
   }
 }

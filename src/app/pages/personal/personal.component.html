@@ -2,7 +2,7 @@
     <div class="personal">
         <div class="personal_content">
 
-            <div class="personal_img"></div>
+            <div class="personal_img" [ngStyle]="{'background': '#' + userColor}"></div>
             <div class="personal_name">{{user.name}}</div>
             <div class="personal_subinfo">
                 <div class="personal_subinfo__item">{{user.username}}</div>

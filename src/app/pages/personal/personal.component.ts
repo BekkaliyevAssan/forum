@@ -9,11 +9,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PersonalComponent implements OnInit {
   user
+  userColor
   constructor(private userService: UserService) { 
     this.user = this.userService.personalInfo
   }
 
   ngOnInit(): void {
+    this.userColor = this.userService.getUserColor(this.user.name)
   }
 
   onRedirect(site) {
