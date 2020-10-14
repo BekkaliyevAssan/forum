@@ -1,20 +1,23 @@
 <div class="wrapper">
     <div class="personal">
-        <div class="personal_img"></div>
-        <div class="personal_name">{{user.name}}</div>
-        <div class="personal_subinfo">
-            <div class="personal_subinfo__item">{{user.username}}</div>
-            <div class="personal_subinfo__item">{{user.company.name}}</div>
-            <div class="personal_subinfo__item" (click)="onRedirect(user.website)">{{user.website}}</div>
-        </div>
-        <div class="personal_location">
-            <span class="material-icons">
-                location_on
-            </span>
-            {{user.address.city}}, {{user.address.street}}
-        </div>
-        <div class="button-group">
-            <app-button routerLink="new-post" [type]="'primary'" [text]="'create a new post'"></app-button>
+        <div class="personal_content">
+
+            <div class="personal_img"></div>
+            <div class="personal_name">{{user.name}}</div>
+            <div class="personal_subinfo">
+                <div class="personal_subinfo__item">{{user.username}}</div>
+                <div class="personal_subinfo__item">{{user.company.name}}</div>
+                <div class="personal_subinfo__item" (click)="onRedirect(user.website)">{{user.website}}</div>
+            </div>
+            <div class="personal_location">
+                <span class="material-icons">
+                    location_on
+                </span>
+                {{user.address.city}}, {{user.address.street}}
+            </div>
+            <div class="button-group">
+                <app-button routerLink="new-post" [type]="'primary'" [text]="'create a new post'"></app-button>
+            </div>
         </div>
     </div>
     <div class="posts">

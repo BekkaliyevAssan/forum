@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="comment_input">
-        <form [formGroup]="comment">
+        <form [formGroup]="comment" (keydown)="onEnterKey($event, post.id)">
             <div class="input-item">
                 <div class="label">title</div>
                 <input type="text" formControlName="name">

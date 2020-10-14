@@ -75,4 +75,8 @@ export class PostDetailsComponent implements OnInit {
     this.comment.reset()
   }
 
+  onEnterKey(event, postId) {
+    if (event.keyCode === 13) this.addComment(postId)
+  }
+
 }
