@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -21,12 +21,11 @@ export class UserDetailsComponent implements OnInit {
         this.user = user
         this.loading = false
         this.userColor = this.userService.getUserColor(this.user.name)
-      }, 200)
+      }, 0)
     })
   }
 
   onRedirect(site) {
     document.location.href = `https://${site}`
   }
-
 }

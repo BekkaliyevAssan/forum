@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 export class PersonalComponent implements OnInit {
   user
   userColor
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService, private cdr: ChangeDetectorRef) {
     this.user = this.userService.personalInfo
   }
 
@@ -20,5 +20,12 @@ export class PersonalComponent implements OnInit {
 
   onRedirect(site) {
     document.location.href = `https://${site}`
+  }
+  contentWidth
+  @ViewChild('content') elementView: ElementRef;
+
+  ngAfterViewInit() {
+    this.contentWidth = this.elementView.nativeElement.offsetWidth;
+    this.cdr.detectChanges()
   }
 }
