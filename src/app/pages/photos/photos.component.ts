@@ -8,6 +8,8 @@ import { PostService } from 'src/app/services/post.service';
   styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnInit {
+  imgLoaded: boolean = false
+  
   albumId = this.route.snapshot.paramMap.get('album-id')
   album
   photos
@@ -25,6 +27,9 @@ export class PhotosComponent implements OnInit {
       })
       this.loading = false
     }, 0)
+  }
+  _imgLoaded() {
+    this.imgLoaded = true
   }
 
 }

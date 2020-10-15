@@ -24,7 +24,8 @@ const routes: Routes = [
   {path: 'user/:id', component: UserDetailsComponent, children: [
     {path: '', component: PersonalMainComponent},
     {path: ':post-id', component: PostDetailsComponent},
-    {path: ':album-id', component: PhotosComponent}
+    {path: 'album/:album-id', component: PhotosComponent},
+    // {path: 'album/:album-id', component: PhotosComponent}
   ]}
 
 ];

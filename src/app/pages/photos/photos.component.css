@@ -3,3 +3,25 @@
     font-weight: bold;
     padding-bottom: 1rem;
 }
+.photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* grid-gap: 1rem; */
+}
+.photo_item {
+    /* max-height: 100%; */
+    /* max-width: 100%; */
+    width: 200px;
+    margin-bottom: 2rem;
+}
+img {
+    width: 200px;
+    border-radius: 10px;
+    display: grid;
+}
+.placeholder {
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    background: #f0f0f0;
+}

@@ -2,7 +2,15 @@
     <div class="title" *ngIf="album">{{album.title}}</div>
     <div class="photos">
         <div *ngFor="let p of photos">
-            <img src="{{p.url}}" alt="">
+            <div class="photo_item">
+                <!-- <div *ngIf="imgLoaded"> -->
+                    <img (load)="_imgLoaded()" src="{{p.url}}">
+                <!-- </div> -->
+                <div *ngIf="!imgLoaded">
+                    <div  class="placeholder"></div>
+                </div>
+                <span>{{p.title}}</span>
+            </div>
         </div>
     </div>
 </div>
